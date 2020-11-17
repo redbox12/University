@@ -7,7 +7,7 @@ public class Main {
 
         Rocket Union = new Rocket(500, 350);
 
-        //вывод изначальных данных, Андрей Сергеевич, простите ну этот блок ну очень хочется вывести блоком, а не строчкой
+        
         out.println("\nУ ракеты генерируется топлива от 0 до 300 л.");
         out.println("Общая масса ракеты: " + Union.getTotalWeight());
         out.println("Текущая кол-во топлива: " + Union.getFuelLevel());
