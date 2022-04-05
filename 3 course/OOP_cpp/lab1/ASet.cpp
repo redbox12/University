@@ -5,24 +5,24 @@ using std::cout;
 using std::endl;
 
 
-ASet::ASet(int sizeD) //конструктор
+ASet::ASet(int sizeD) //РџРђР’Р•Р› 
 {
-	this->size = sizeD; //инициализирую поле size класса ASet
-	container = new double[size]; //инициализирую поле container класса ASet
-	this->filled_size = 0;	//инициализирую поле filled_size класса ASet
+	this->size = sizeD; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ size пїЅпїЅпїЅпїЅпїЅпїЅ ASet
+	container = new double[size]; //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ container пїЅпїЅпїЅпїЅпїЅпїЅ ASet
+	this->filled_size = 0;	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ filled_size пїЅпїЅпїЅпїЅпїЅпїЅ ASet
 
 }
 
-void ASet::incl(double new_value)  // включить число в множество, если такое число уже есть, то ничего не делать
+void ASet::incl(double new_value)  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 {
-	if (!contain(new_value))	//проверка есть ли new_value в массиве
+	if (!contain(new_value))	//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ new_value пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	{
 		if (filled_size < size) {
 			container[filled_size] = new_value;
 			filled_size++;
 		}
 		else {
-			std::cerr << "Место нет\n";
+			std::cerr << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ\n";
 		}
 
 	}
@@ -31,10 +31,10 @@ void ASet::incl(double new_value)  // включить число в множество, если такое чис
 
 
 
-void ASet::excl(double delete_value)	// исключить эл-т из мн-ва
+void ASet::excl(double delete_value)	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ-пїЅ пїЅпїЅ пїЅпїЅ-пїЅпїЅ
 {
-	if (contain(delete_value)) {	// проверка есть ли delete_value 
-		bool control_filledsize = false;	//это переменная нужна, чтобы удалить 1-ий эл-т
+	if (contain(delete_value)) {	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ delete_value 
+		bool control_filledsize = false;	//пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 1-пїЅпїЅ пїЅпїЅ-пїЅ
 		for (int i = 0; i < this->filled_size; i++) {
 
 			if (container[i] == delete_value) {
@@ -43,7 +43,7 @@ void ASet::excl(double delete_value)	// исключить эл-т из мн-ва
 				control_filledsize = true;
 			}
 
-			if (control_filledsize) { //если убрать это усл-е, то последний эл-т будет затираться  
+			if (control_filledsize) { //пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ-пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  
 				container[i] = container[i + 1];
 			}
 
@@ -52,12 +52,12 @@ void ASet::excl(double delete_value)	// исключить эл-т из мн-ва
 		filled_size--;
 	}
 
-	else { std::cerr << "Такой элемент не возможно удалить\nS"; }
+	else { std::cerr << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nS"; }
 
 }
 
 
-bool ASet::contain(double search_value)// содержится в множестве? 
+bool ASet::contain(double search_value)// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ? 
 {
 	bool flag = false;
 
@@ -71,7 +71,7 @@ bool ASet::contain(double search_value)// содержится в множестве?
 	return flag;
 }
 
-void ASet::print()  // распечатать состояние объекта
+void ASet::print()  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 {
 	std::cout << "{ ";
 	for (int i = 0; i < filled_size - 1; i++)
@@ -88,7 +88,7 @@ void ASet::print()  // распечатать состояние объекта
 
 }
 
-ASet::~ASet() //деструктор
+ASet::~ASet() //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 {
 	delete[] container;
 }
